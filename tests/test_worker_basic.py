@@ -60,7 +60,7 @@ class TestWorkerBasic(unittest.TestCase):
 
         self.assertEqual(len_to_crawl_after, len_to_crawl_before)
 
-
+unittest.main()
 
 
 
