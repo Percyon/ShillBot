@@ -2,8 +2,10 @@
 import unittest
 import codecs
 import os
+import sys
 
 from workers.basic_worker import BasicUserParseWorker
+
 
 
 class TestWorkerBasic(unittest.TestCase):
