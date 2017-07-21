@@ -4,4 +4,4 @@ machine:
 
 test:
   override:
-    - test_*.py ShillBot/tests
+    - py.test test_*.py
