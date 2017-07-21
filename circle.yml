@@ -3,5 +3,6 @@ machine:
     version: 3.6.0
 
 test:
-  post:
-    - test_*.py Users/ShillBot/tests
+  override:
+
+    - python -m unittest discover
