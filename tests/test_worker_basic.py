@@ -60,7 +60,10 @@ class TestWorkerBasic(unittest.TestCase):
 
         self.assertEqual(len_to_crawl_after, len_to_crawl_before+1)
 
-
+    def test_worker_add_functional(self):
+        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
+        self.assertEqual(worker.to_crawl[-1],"https://www.reddit.com/user/Chrikelnel")
+    
 
 
 
