@@ -66,14 +66,14 @@ class TestWorkerBasic(unittest.TestCase):
 
     def test_worker_add_1(self):
         worker = None
-        worker = BasicUserParseWorker("https://ww.reddit.com/user/Chrikelnel")
+        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
         worker.add_link(["https://www.google.ca/"])
 
         self.assertRaises(Exception,worker.run)
         self.assertEqual(worker.cur_links,2)
 
     def test_worker_add_2(self):
-        worker = BasicUserParseWorker("https://ww.reddit.com/user/Chrikelnel")
+        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
         worker.add_link(["https://www.google.ca/"])
         worker.add_link(["https://www.google.ca/"])
 
