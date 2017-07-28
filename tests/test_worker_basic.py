@@ -4,7 +4,7 @@ import codecs
 import os
 
 from workers.basic_worker import BasicUserParseWorker
-
+from mothership import MothershipServer
 
 class TestWorkerBasic(unittest.TestCase):
 
@@ -67,15 +67,15 @@ class TestWorkerBasic(unittest.TestCase):
     def test_worker_add_1(self):
         worker = None
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
-        worker.add_link(["https://www.google.ca/"])
+        worker.add_links(["https://www.google.ca/"])
 
         self.assertRaises(Exception,worker.run)
         self.assertEqual(worker.cur_links,2)
 
     def test_worker_add_2(self):
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
-        worker.add_link(["https://www.google.ca/"])
-        worker.add_link(["https://www.google.ca/"])
+        worker.add_links(["https://www.google.ca/"])
+        worker.add_links(["https://www.google.ca/"])
 
         self.assertRaises(Exception,worker.run)
         self.assertEqual(worker.cur_links,2)
