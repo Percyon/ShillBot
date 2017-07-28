@@ -4,7 +4,7 @@ import codecs
 import os
 
 from workers.basic_worker import BasicUserParseWorker
-from mothership import MothershipServer
+from mothership.base import MothershipServer
 
 class TestWorkerBasic(unittest.TestCase):
 
