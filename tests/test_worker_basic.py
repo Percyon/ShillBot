@@ -60,10 +60,17 @@ class TestWorkerBasic(unittest.TestCase):
 
         self.assertEqual(len_to_crawl_after, len_to_crawl_before+1)
 
+#########################################
+
     def test_worker_add_functional(self):
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
         self.assertEqual(worker.to_crawl[-1],"https://www.reddit.com/user/Chrikelnel")
 
+    def test_basic_further_connection(self):
+        mothership = MothershipServer()
+        worker = BasicUserParseWorker("http://www.reddit.com/user/Chrikelnel")
+        self.assertRaises(Exception, worker.run)
+        
     def test_worker_add_1(self):
         worker = None
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
@@ -72,18 +79,7 @@ class TestWorkerBasic(unittest.TestCase):
         self.assertRaises(Exception,worker.run)
         self.assertEqual(worker.cur_links,2)
 
-    def test_worker_add_2(self):
-        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
-        worker.add_links(["https://www.google.ca/"])
-        worker.add_links(["https://www.google.ca/"])
 
-        self.assertRaises(Exception,worker.run)
-        self.assertEqual(worker.cur_links,2)
-
-    def test_basic_connection_3(self):
-        mothership = MothershipServer()
-        worker = BasicUserParseWorker("http://www.reddit.com/user/Chrikelnel")
-        self.assertRaises(Exception, worker.run)
 
 
 
